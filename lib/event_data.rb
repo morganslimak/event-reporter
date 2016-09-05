@@ -8,7 +8,7 @@ class EventData
     @queue = EventQueue.new
   end
 
-  def load(file = 'full_event_attendees.csv')
+  def load(file)
     @contents = CSV.read file,
       headers: true, header_converters: :symbol
     clean_contents

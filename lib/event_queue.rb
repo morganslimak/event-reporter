@@ -16,7 +16,10 @@ class EventQueue
   def print
     puts "LAST NAME  FIRST NAME  EMAIL  ZIPCODE  CITY  STATE  ADDRESS  PHONE  DISTRICT"
     @results.each do |row|
-      puts row.to_s.gsub(",", "  ")
+      row[0], row[1], row[3], row[7], row[4], row[5], row[6] =
+        row[1], row[0], row[7], row[3], row[5], row[6], row[4]
+      tabbed_row = row.to_s.gsub(",", "  ")
+      puts tabbed_row
     end
   end
 
