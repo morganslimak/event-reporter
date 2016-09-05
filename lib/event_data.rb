@@ -1,7 +1,12 @@
-require "csv"
+require 'csv'
+require_relative 'event_queue'
 
 class EventData
-  attr_reader :results, :contents
+  attr_reader :contents, :queue
+
+  def initialize
+    @queue = EventQueue.new
+  end
 
   def load(file)
     @contents = CSV.read file,
@@ -19,7 +24,7 @@ class EventData
   end
 
   def find(attribute, criteria)
-    @results = @contents.select do |row|
+    @queue.results = @contents.select do |row|
       row[attribute].upcase == criteria.upcase
     end
   end
