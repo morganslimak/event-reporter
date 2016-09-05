@@ -19,6 +19,7 @@ class EventReporter
       @data.load(command[1]) if command[0] == 'load'
       @data.find(command[1].to_sym, command[2]) if command[0] == 'find'
       @queue.count if command[0] == 'queue' && command[1] == 'count'
+      @queue.clear if command[0] == 'queue' && command[1] == 'clear'
       command = get_command
     end
   end
