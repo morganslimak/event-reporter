@@ -12,7 +12,7 @@ class EventData
   def clean_contents
     @contents.each do |row|
       row.each do |key, attribute|
-        row[key] = attribute.to_s
+        row[key] = attribute.to_s.strip
         row[key] = attribute.to_s.rjust(5,"0")[0..4] if key == :zipcode
       end
     end
