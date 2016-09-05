@@ -7,6 +7,7 @@ class EventDataTest < Minitest::Test
   def test_load_small_csv
     data = EventData.new()
     data.load("event_attendees.csv")
+    require "pry"; binding.pry
     assert_equal CSV::Table, data.contents.class
   end
 
