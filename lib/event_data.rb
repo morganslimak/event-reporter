@@ -15,6 +15,9 @@ class EventData
   end
 
   def clean_contents
+    @contents.by_col!
+    2.times {@contents.delete(0)}
+    @contents.by_row!
     @contents.each do |row|
       row.each do |key, attribute|
         row[key] = attribute.to_s.strip
