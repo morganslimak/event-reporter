@@ -10,7 +10,7 @@ class EventQueue
   end
 
   def count
-    @results.count
+    puts @results.count
   end
 
 end
