@@ -1,11 +1,13 @@
 require 'csv'
 require_relative 'event_queue'
+require_relative 'attendee'
 
 class EventData
-  attr_reader :contents, :queue
+  attr_reader :contents, :queue, :attendees_repo
 
   def initialize
     @queue = EventQueue.new
+    @attendees_repo = []
   end
 
   def load(file)
@@ -15,20 +17,18 @@ class EventData
   end
 
   def clean_contents
-    @contents.by_col!
-    2.times {@contents.delete(0)}
-    @contents.by_row!
     @contents.each do |row|
       row.each do |key, attribute|
         row[key] = attribute.to_s.strip
         row[key] = attribute.to_s.rjust(5,"0")[0..4] if key == :zipcode
       end
+      @attendees_repo << Attendee.new(row)
     end
   end
 
   def find(attribute, criteria)
-    @queue.results = @contents.select do |row|
-      row[attribute].upcase == criteria.upcase
+    @queue.results = @attendees_repo.select do |attendee|
+      attendee.send(attribute).upcase == criteria.upcase
     end
   end
 
