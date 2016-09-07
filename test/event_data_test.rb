@@ -32,5 +32,5 @@ class EventDataTest < Minitest::Test
     data.find(:zipcode, '07306')
     assert_equal 1, data.queue.results.count
   end
-
+  
 end

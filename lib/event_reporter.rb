@@ -21,8 +21,9 @@ class EventReporter
       @data.find(command[1], command[2]) if command[0] == 'find'
       @queue.count if command[0] == 'queue' && command[1] == 'count'
       @queue.clear if command[0] == 'queue' && command[1] == 'clear'
-      @queue.print if command[0] == 'queue' && command[1] == 'print'
+      @queue.print if command[0] == 'queue' && command[1] == 'print' && command.length == 2
       @queue.district if command[0] == 'queue' && command[1] == 'district'
+      @queue.print_by(command[3]) if command[0] == 'queue' && command[1] == 'print' && command[2] == 'by'
       command = get_command
     end
   end

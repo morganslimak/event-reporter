@@ -34,4 +34,11 @@ class EventQueue
     end
   end
 
+  def print_by(attribute)
+    @results.sort_by! do |attendee|
+      attendee.send(attribute)
+    end
+    print
+  end
+
 end
