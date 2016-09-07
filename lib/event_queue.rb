@@ -27,8 +27,8 @@ class EventQueue
     if @results.length < 10
       @results.each do |attendee|
       url = "https://congress.api.sunlightfoundation.com/districts/locate?zip=#{attendee.zipcode}&apikey=d2feb7fe2971453889f66b544ee396c4"
-      resp = Net::HTTP.get_response(URI.parse(url))
-      sunlight_data = JSON.parse(resp.body)
+      response = Net::HTTP.get_response(URI.parse(url))
+      sunlight_data = JSON.parse(response.body)
       attendee.district = sunlight_data["results"][0]["district"].to_s unless sunlight_data["results"].empty?
       end
     end
