@@ -41,4 +41,14 @@ class EventQueue
     print
   end
 
+  def save(filename)
+    CSV.open("./output/#{filename}", "wb") do |csv|
+      csv << ["last_name", "first_name", "email_address", "zipcode", "city", "state", "street", "homephone", "district"]
+      @results.each do |attendee|
+        row = [attendee.last_name, attendee.first_name, attendee.email, attendee.zipcode, attendee.city, attendee.state, attendee.address, attendee.phone, attendee.district]
+        csv << row
+      end
+    end
+  end
+
 end

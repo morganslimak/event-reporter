@@ -24,6 +24,7 @@ class EventReporter
       @queue.print if command[0] == 'queue' && command[1] == 'print' && command.length == 2
       @queue.district if command[0] == 'queue' && command[1] == 'district'
       @queue.print_by(command[3]) if command[0] == 'queue' && command[1] == 'print' && command[2] == 'by'
+      @queue.save(command[3]) if command[0] == 'queue' && command[1] == 'save' && command[2] == 'to'
       command = get_command
     end
   end
