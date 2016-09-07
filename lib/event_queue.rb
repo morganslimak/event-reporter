@@ -51,4 +51,8 @@ class EventQueue
     end
   end
 
+  def help
+    
+  end
+
 end
