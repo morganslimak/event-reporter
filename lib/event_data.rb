@@ -11,18 +11,22 @@ class EventData
   end
 
   def load(file)
-    @contents = CSV.read file,
-      headers: true, header_converters: :symbol
+    @contents = CSV.read file, headers: true, header_converters: :symbol
     clean_contents
   end
 
   def clean_contents
     @contents.each do |row|
-      row.each do |key, attribute|
-        row[key] = attribute.to_s.strip
-        row[key] = attribute.to_s.rjust(5,"0")[0..4] if key == :zipcode
-      end
+      clean_row(row)
       @attendees_repo << Attendee.new(row)
+    end
+  end
+
+  def clean_row(row)
+    row.each do |key, attribute|
+      row[key] = attribute.to_s.strip
+      row[key] = attribute.to_s.rjust(5,"0")[0..4] if key == :zipcode
+      row[key] = attribute.to_s.scan(/\d/).join if key == :homephone
     end
   end
 

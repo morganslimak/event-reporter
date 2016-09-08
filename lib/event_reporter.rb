@@ -94,5 +94,5 @@ class EventReporter
 
 end
 
-e = EventReporter.new
-e.repl
+event_reporter = EventReporter.new
+event_reporter.repl
