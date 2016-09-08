@@ -45,15 +45,9 @@
   </tr>
     <% @results.each do |attendee| %>
       <tr>
-        <td><%= attendee.last_name %></td>
-        <td><%=  attendee.first_name %></td>
-        <td><%=  attendee.email %></td>
-        <td><%=  attendee.zipcode %></td>
-        <td><%=  attendee.city %></td>
-        <td><%=  attendee.state %></td>
-        <td><%=  attendee.address %></td>
-        <td><%=  attendee.phone %></td>
-        <td><%=  attendee.district %></td>
+        <% @attributes.each do |attribute| %>
+          <td><%= attendee.send(attribute) %></td>
+        <% end %>
       </tr>
     <% end %>
   </table>
