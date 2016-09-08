@@ -20,7 +20,7 @@ class EventReporter
       when command[0] == 'help'
         help(command)
       when command[0] == 'load' && command.length == 1
-        @data.load('full_event_attendees.csv')
+        @data.load('event_attendees.csv')
       when command[0] == 'load' && command.length == 2
         @data.load(command[1])
       when command[0] == 'find'
