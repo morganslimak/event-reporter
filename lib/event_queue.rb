@@ -20,11 +20,22 @@ class EventQueue
   end
 
   def print
-    puts "LAST NAME".ljust(15)+"FIRST NAME".ljust(15)+"EMAIL".ljust(35)+"ZIPCODE".ljust(10)+"CITY".ljust(20)+"STATE".ljust(10)+"ADDRESS".ljust(45)+"PHONE".ljust(15)+"DISTRICT"
+    headers = ["LAST NAME", "FIRST NAME", "EMAIL", "ZIPCODE", "CITY",
+              "STATE", "ADDRESS", "PHONE", "DISTRICT"]
     max_lengths = find_max_lengths
-    require "pry"; binding.pry
+    headers_and_lengths = headers.zip(max_lengths)
+    formatted_headers = ""
+    headers_and_lengths.each do |header, length|
+      formatted_headers += header.ljust(length)
+    end
+    puts formatted_headers
+    attributes_and_lengths = @attributes.zip(max_lengths)
     @results.each do |attendee|
-      puts attendee.last_name.ljust(15) + attendee.first_name.ljust(15) + attendee.email.ljust(35) + attendee.zipcode.ljust(10) + attendee.city.ljust(20) + attendee.state.ljust(10) + attendee.address.ljust(45) + attendee.phone.ljust(15) + attendee.district
+      formatted_attributes = ""
+      attributes_and_lengths.each do |attribute, length|
+        formatted_attributes += attendee.send(attribute).ljust(length)
+      end
+      puts formatted_attributes
     end
   end
 
@@ -34,7 +45,11 @@ class EventQueue
       sorted_by_attribute = @results.sort_by do |attendee|
         attendee.send(attribute).length
       end
-      max_lengths << sorted_by_attribute.last.send(attribute).length
+      if sorted_by_attribute.last.send(attribute).length + 5 > 11
+        max_lengths << sorted_by_attribute.last.send(attribute).length + 5
+      else
+        max_lengths << 11
+      end
     end
     return max_lengths
   end
