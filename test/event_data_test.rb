@@ -32,5 +32,12 @@ class EventDataTest < Minitest::Test
     data.find(:zipcode, '07306')
     assert_equal 1, data.queue.results.count
   end
-  
+
+  def test_exporting_the_queue_results_to_html
+    data = EventData.new
+    data.load("full_event_attendees.csv")
+    data.find(:first_name, 'morgan')
+    assert_equal "", data.queue.export
+  end
+
 end

@@ -1,0 +1,17 @@
+<html>
+<head>
+  <title>Event Attendees Data Report</title>
+</head>
+<body>
+  <h1>Event Attendee Data Report</h1>
+  <table>
+  <tr><th>Last Name</th><th>First Name</th></tr>
+    <% @results.each do |attendee| %>
+      <tr>
+        <td><%= attendee.last_name %></td>
+        <td><%=  attendee.first_name %></td>
+      </tr>
+    <% end %>
+  </table>
+</body>
+</html>

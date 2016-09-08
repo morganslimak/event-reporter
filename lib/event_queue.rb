@@ -1,5 +1,6 @@
 require 'net/http'
 require 'json'
+require 'erb'
 
 class EventQueue
   attr_accessor :results
@@ -51,8 +52,13 @@ class EventQueue
     end
   end
 
-  def help
-    
+  def export(filename)
+    data_report_template = File.read "data_report_template.erb"
+    erb_template = ERB.new data_report_template
+    data_report = erb_template.result(binding)
+    File.open("./output/#{filename}",'w') do |file|
+      file.puts data_report
+    end
   end
 
 end

@@ -26,6 +26,7 @@ class EventReporter
       @queue.district if command[0] == 'queue' && command[1] == 'district'
       @queue.print_by(command[3]) if command[0] == 'queue' && command[1] == 'print' && command[2] == 'by'
       @queue.save(command[3]) if command[0] == 'queue' && command[1] == 'save' && command[2] == 'to'
+      @queue.export(command[3]) if command[0] == 'queue' && command[1] == 'export' && command[2] == 'html'
       command = get_command
     end
   end
@@ -72,7 +73,7 @@ class EventReporter
       puts "queue save to <filename.csv>"
       puts "-Export the current queue to the specified filename as a CSV."
     when "queue export html"
-      puts "queue export html <filename.csv>"
+      puts "queue export html <filename.html>"
       puts "-Export the current queue to the specified filename as a valid HTM"\
            "L file."
     end
