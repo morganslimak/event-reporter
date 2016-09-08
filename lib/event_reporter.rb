@@ -16,17 +16,30 @@ class EventReporter
   def repl
     command = get_command
     until command[0] == 'quit'
-      help(command) if command[0] == 'help'
-      @data.load('full_event_attendees.csv') if command[0] == 'load' && command.length == 1
-      @data.load(command[1]) if command[0] == 'load' && command.length == 2
-      @data.find(command[1], command.slice(2,command.length-1).join(" ")) if command[0] == 'find'
-      @queue.count if command[0] == 'queue' && command[1] == 'count'
-      @queue.clear if command[0] == 'queue' && command[1] == 'clear'
-      @queue.print if command[0] == 'queue' && command[1] == 'print' && command.length == 2
-      @queue.district if command[0] == 'queue' && command[1] == 'district'
-      @queue.print_by(command[3]) if command[0] == 'queue' && command[1] == 'print' && command[2] == 'by'
-      @queue.save(command[3]) if command[0] == 'queue' && command[1] == 'save' && command[2] == 'to'
-      @queue.export(command[3]) if command[0] == 'queue' && command[1] == 'export' && command[2] == 'html'
+      case
+      when command[0] == 'help'
+        help(command)
+      when command[0] == 'load' && command.length == 1
+        @data.load('full_event_attendees.csv')
+      when command[0] == 'load' && command.length == 2
+        @data.load(command[1])
+      when command[0] == 'find'
+        @data.find(command[1], command.slice(2,command.length-1).join(" "))
+      when command[0] == 'queue' && command[1] == 'count'
+        @queue.count
+      when command[0] == 'queue' && command[1] == 'clear'
+        @queue.clear
+      when command[0] == 'queue' && command[1] == 'print' && command.length == 2
+        @queue.print
+      when command[0] == 'queue' && command[1] == 'district'
+        @queue.district
+      when command[0] == 'queue' && command[1] == 'print' && command[2] == 'by'
+        @queue.print_by(command[3])
+      when command[0] == 'queue' && command[1] == 'save' && command[2] == 'to'
+        @queue.save(command[3])
+      when command[0] == 'queue' && command[1] == 'export' && command[2] == 'html'
+        @queue.export(command[3])
+      end
       command = get_command
     end
   end
