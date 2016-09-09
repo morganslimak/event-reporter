@@ -1,8 +1,7 @@
 class Printer
-  def initialize(results)
+  def initialize(results, attributes)
     @results = results
-    @attributes = ["last_name", "first_name", "email", "zipcode", "city",
-                  "state", "address", "phone", "district"]
+    @attributes = attributes
     @headers = ["LAST NAME", "FIRST NAME", "EMAIL", "ZIPCODE", "CITY",
                "STATE", "ADDRESS", "PHONE", "DISTRICT"]
   end

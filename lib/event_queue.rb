@@ -8,6 +8,8 @@ class EventQueue
 
   def initialize
     @results = []
+    @attributes = ["last_name", "first_name", "email", "zipcode", "city",
+                  "state", "address", "phone", "district"]
   end
 
   def clear
@@ -19,7 +21,7 @@ class EventQueue
   end
 
   def print
-    printer = Printer.new(@results)
+    printer = Printer.new(@results, @attributes)
     max_lengths = printer.find_max_lengths
     return if max_lengths.empty?
     printer.print_headers(max_lengths)
@@ -65,5 +67,4 @@ class EventQueue
       file.puts data_report
     end
   end
-
 end
