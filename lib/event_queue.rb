@@ -23,6 +23,7 @@ class EventQueue
     headers = ["LAST NAME", "FIRST NAME", "EMAIL", "ZIPCODE", "CITY",
               "STATE", "ADDRESS", "PHONE", "DISTRICT"]
     max_lengths = find_max_lengths
+    return if max_lengths.empty?
     headers_and_lengths = headers.zip(max_lengths)
     formatted_headers = ""
     headers_and_lengths.each do |header, length|
@@ -42,6 +43,7 @@ class EventQueue
   def find_max_lengths
     max_lengths = []
     @attributes.each do |attribute|
+      break if @results.empty?
       sorted_by_attribute = @results.sort_by do |attendee|
         attendee.send(attribute).length
       end

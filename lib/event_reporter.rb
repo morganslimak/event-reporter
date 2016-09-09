@@ -46,6 +46,7 @@ class EventReporter
 
   def help(command)
     if command.length == 1
+      puts "List of Commands:"
       puts "help, load, find, queue count, queue clear, queue district, "\
            "queue print, queue print by, queue save to, queue export html"
     else

@@ -1,0 +1,337 @@
+<html>
+<head>
+  <title>Event Attendees Data Report</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $("#attendees tr").click(function(){
+      $(this).addClass("highlight").siblings().removeClass("highlight");
+    });
+  })
+  </script>
+  <style>
+  th {
+    color: red;
+    text-align: left;
+    font-size: 20px;
+    font-family: Arial Black;
+  }
+  table {
+    border: 2px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    border-right: 2px solid black;
+    padding: 5px;
+  }
+  .highlight {
+    background-color: yellow;
+  }
+  </style>
+</head>
+<body>
+  <img src ="http://morganslimak.com/event_reporter.png"></img>
+  <table id="attendees">
+  <tr>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Email</th>
+    <th>Zipcode</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>District</th>
+  </tr>
+    
+      <tr>
+        
+          <td>Panek</td>
+        
+          <td>Michael</td>
+        
+          <td>dntisler@jumpstartlab.com</td>
+        
+          <td>84105</td>
+        
+          <td>Salt Lake City</td>
+        
+          <td>UT</td>
+        
+          <td>1434 Wilson Ave.</td>
+        
+          <td>8013626000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Cebulski</td>
+        
+          <td>Kate</td>
+        
+          <td>orazrya1@jumpstartlab.com</td>
+        
+          <td>84102</td>
+        
+          <td>Salt Lake City</td>
+        
+          <td>UT</td>
+        
+          <td>1033 Barbara Pl Apt 2</td>
+        
+          <td>8015505000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Engel</td>
+        
+          <td>Megan</td>
+        
+          <td>bgc64@jumpstartlab.com</td>
+        
+          <td>84102</td>
+        
+          <td>Salt Lake City</td>
+        
+          <td>UT</td>
+        
+          <td>219 Elizabeth St.</td>
+        
+          <td>8015505000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Gilbert</td>
+        
+          <td>Kristen</td>
+        
+          <td>tpollins6@jumpstartlab.com</td>
+        
+          <td>84121</td>
+        
+          <td>Salt Lake City</td>
+        
+          <td>UT</td>
+        
+          <td>1343 Ashwood Circle</td>
+        
+          <td>8015505000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Myett</td>
+        
+          <td>Student</td>
+        
+          <td>wjang@jumpstartlab.com</td>
+        
+          <td>84106</td>
+        
+          <td>Salt lake city</td>
+        
+          <td>UT</td>
+        
+          <td>834 E. Pond View Way</td>
+        
+          <td>8015505000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Xx</td>
+        
+          <td>Adrienne</td>
+        
+          <td>rrthleen.oflaherty@jumpstartlab.com</td>
+        
+          <td>84121</td>
+        
+          <td>Salt Lake City</td>
+        
+          <td>UT</td>
+        
+          <td>1213 Medical Plaza</td>
+        
+          <td>8015505000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Ludmer</td>
+        
+          <td>Eileen</td>
+        
+          <td>mhulger@jumpstartlab.com</td>
+        
+          <td>84103</td>
+        
+          <td>Salt Lake City</td>
+        
+          <td>UT</td>
+        
+          <td>723 11th Avenue</td>
+        
+          <td>8015505000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Boozel</td>
+        
+          <td>Alex</td>
+        
+          <td>jyhiang@jumpstartlab.com</td>
+        
+          <td>84103</td>
+        
+          <td>Salt Lake City</td>
+        
+          <td>UT</td>
+        
+          <td>220 A Street</td>
+        
+          <td>8015505000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Berkley</td>
+        
+          <td>Susan</td>
+        
+          <td>ceebst.4@jumpstartlab.com</td>
+        
+          <td>84102</td>
+        
+          <td>Salt Lake City</td>
+        
+          <td>UT</td>
+        
+          <td>1033 Barbara Pl</td>
+        
+          <td>8015505000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Kopkin</td>
+        
+          <td>Emma</td>
+        
+          <td>sxcoffey@jumpstartlab.com</td>
+        
+          <td>84102</td>
+        
+          <td>Salt Lake City</td>
+        
+          <td>UT</td>
+        
+          <td>1033 Barbara Pl</td>
+        
+          <td>8015505000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Armacost</td>
+        
+          <td>Kate</td>
+        
+          <td>hgle.Saud@jumpstartlab.com</td>
+        
+          <td>84102</td>
+        
+          <td>Salt Lake City</td>
+        
+          <td>UT</td>
+        
+          <td>1033 Barbara Pl</td>
+        
+          <td>8015505000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Woolworth</td>
+        
+          <td>Lindsey</td>
+        
+          <td>eoeal@jumpstartlab.com</td>
+        
+          <td>84111</td>
+        
+          <td>salt lake city</td>
+        
+          <td>UT</td>
+        
+          <td>350 south 200 east #406</td>
+        
+          <td>8013594000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td>Wynn</td>
+        
+          <td>Rich</td>
+        
+          <td>vkrenzo.serna@jumpstartlab.com</td>
+        
+          <td>84109</td>
+        
+          <td>Salt Lake City</td>
+        
+          <td>UT</td>
+        
+          <td>2887 Wainwright Road</td>
+        
+          <td>8015505000</td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+  <br>
+  <p>***Click on a data row to select/highlight it</p>
+</body>
+</html>
